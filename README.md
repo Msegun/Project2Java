@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.com/TestowanieJAVA2017-2018Gr2/projekt2-Msegun.svg?token=Sx7JteW932SkMFhDodrt&branch=master)](https://travis-ci.com/TestowanieJAVA2017-2018Gr2/projekt2-Msegun)
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/Msegun/Project2Java?branch=master)](https://bettercodehub.com/)
+
+
 # Testowanie aplikacji JAVA 2017-2018
 ## Projekt 2 (Maven, JUnit oraz atrapy) 
 
