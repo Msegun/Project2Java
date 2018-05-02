@@ -1,13 +1,18 @@
 package com.example.mockdemo.app;
 
-import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.hamcrest.CoreMatchers.*;
-
-import org.junit.Test;
 
 import com.example.mockdemo.messenger.ConnectionStatus;
 import com.example.mockdemo.messenger.MalformedRecipientException;
@@ -28,7 +33,7 @@ public class MessageAppTest {
 	
 	// Test will be finished later when i create implementation of own fake MessageService
 	
-	@Before
+	@BeforeEach
 	public void setUp(){
 		ms = new MessageServiceCustomMock();
 		messenger = new Messenger(ms);
@@ -37,6 +42,21 @@ public class MessageAppTest {
 	// First I'm going to create a few test to check my if fake implementation works as expected
 	// These tests were not necessary
 	// Testing my custom checkConnection method
+	
+	// Simple assertTrueExample
+	@Test
+	public void SetConnectionCheck() {
+		ms.SetConnection(true);
+		assertTrue(ms.RetConnection());	
+	}
+	
+	// Simple assertFalseExample
+	@Test
+	public void SetSentheck() {
+		ms.SetMessageSent(false);
+		assertFalse(ms.RetSent());	
+	}
+	
 	@Test
 	public void ConnectionStatusMessageServiceWithValidServerReturnsSuccess() {
 		ms.SetConnection(true);
@@ -68,16 +88,22 @@ public class MessageAppTest {
 		assertEquals(SendingStatus.SENT, ms.send(VALID_SERVER, VALID_MESSAGE));
 	}
 	
-	@Test(expected = MalformedRecipientException.class)
+	@Test
 	public void SendMessageServiceWithInValidServiceException() throws MalformedRecipientException {
-		ms.SetMessageSent(true);
-		assertEquals(SendingStatus.SENDING_ERROR, ms.send(INVALID_SERVER, VALID_MESSAGE));
+		assertThrows(MalformedRecipientException.class,
+	            ()->{
+	            	ms.SetMessageSent(true);
+	        		assertEquals(SendingStatus.SENDING_ERROR, ms.send(INVALID_SERVER, VALID_MESSAGE));
+	            });
 	}
 	
-	@Test(expected = MalformedRecipientException.class)
+	@Test
 	public void SendMessageServiceWithInValidMessageException() throws MalformedRecipientException {
-		ms.SetMessageSent(true);
-		assertEquals(SendingStatus.SENDING_ERROR, ms.send(VALID_SERVER, INVALID_MESSAGE));
+		assertThrows(MalformedRecipientException.class,
+	            ()->{
+	            	ms.SetMessageSent(true);
+	        		assertEquals(SendingStatus.SENDING_ERROR, ms.send(VALID_SERVER, INVALID_MESSAGE));
+	            });
 	}
 	
 	@Test
@@ -86,43 +112,47 @@ public class MessageAppTest {
 		assertEquals(SendingStatus.SENDING_ERROR, ms.send(VALID_SERVER, VALID_MESSAGE));
 	}
 	
-	@Test(expected = MalformedRecipientException.class)
+	@Test
 	public void SendMessageServiceWithNullMessageOrServerException() throws MalformedRecipientException {
-		ms.SetMessageSent(true);
-		assertEquals(SendingStatus.SENDING_ERROR, ms.send(null, null));
+		assertThrows(MalformedRecipientException.class,
+	            ()->{
+	            	ms.SetMessageSent(true);
+	        		assertEquals(SendingStatus.SENDING_ERROR, ms.send(null, null));
+	            });
 	}
 	
 	// Testing Messenger Class after checking 
 	@Test
 	public void TestConnectionWithValidServerReturnsZero() {
 		ms.SetConnection(true);
-		assertEquals(0, messenger.testConnection(VALID_SERVER));
+		assertThat(messenger.testConnection(VALID_SERVER), is(0));
 	}
 	
 	@Test
 	public void TestConnectionWithNullServerReturnsOne() {
 		ms.SetConnection(true);
-		assertEquals(1, messenger.testConnection(null));
+		assertThat(messenger.testConnection(null), is(1));
 	}
 	
 	@Test
 	public void TestConnectionFalseFlagReturnsOne() {
 		ms.SetConnection(false);
-		assertEquals(1, messenger.testConnection(VALID_SERVER));
+		assertThat(messenger.testConnection(VALID_SERVER), is(1));
 	}
 	
 	@Test
 	public void TestConnectionWithInValidServerReturnsOne() {
 		ms.SetConnection(true);
-		assertEquals(1, messenger.testConnection(INVALID_SERVER));
+		assertThat(messenger.testConnection(INVALID_SERVER), is(1));
 	}
 	
 	
-	//  Messenger class Send method tests
+	// Messenger class Send method tests
+	// Hamcrest example of assertThat
 	@Test
 	public void SendMessageWithValidServerAndMessageReturnsZero() {
 		ms.SetMessageSent(true);
-		assertEquals(0, messenger.sendMessage(VALID_SERVER, VALID_MESSAGE));
+		assertThat(messenger.sendMessage(VALID_SERVER, VALID_MESSAGE), is(0));
 	}
 	
 	@Test
@@ -147,10 +177,10 @@ public class MessageAppTest {
 	@Test
 	public void SendMessageWithInValidServerAndInValidMessageReturnsTwo() {
 		ms.SetMessageSent(true);
-		assertEquals(2, messenger.sendMessage(INVALID_SERVER, INVALID_MESSAGE));
+		assertThat(messenger.sendMessage(INVALID_SERVER, INVALID_MESSAGE), is(2));
 	}
 	
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		messenger = null;
 		ms = null;

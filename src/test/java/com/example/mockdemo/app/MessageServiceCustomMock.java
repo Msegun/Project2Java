@@ -41,8 +41,16 @@ public class MessageServiceCustomMock implements MessageService {
 		connected = state;
 	}
 	
+	public boolean RetConnection() {
+		return connected;
+	}
+	
+	
 	public void SetMessageSent(boolean state) {
 		sent = state;
 	}
 
+	public boolean RetSent() {
+		return sent;
+	}
 }

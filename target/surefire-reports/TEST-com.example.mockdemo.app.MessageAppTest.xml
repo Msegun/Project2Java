@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.mockdemo.app.MessageAppTest" time="0.019" tests="18" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.mockdemo.app.MessageAppTest" time="0.052" tests="20" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.171-3.b10.fc26.x86_64/jre/lib/amd64"/>
@@ -58,21 +58,23 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="ConnectionStatusMessageServiceWithInvalidServerReturnsFailure" classname="com.example.mockdemo.app.MessageAppTest" time="0.006"/>
-  <testcase name="testMessengerSendMessageWithInValidServerAndValidMessageReturnsTwo" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
+  <testcase name="ConnectionStatusMessageServiceWithInvalidServerReturnsFailure" classname="com.example.mockdemo.app.MessageAppTest" time="0.012"/>
+  <testcase name="SetConnectionCheck" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
+  <testcase name="testMessengerSendMessageWithInValidServerAndValidMessageReturnsTwo" classname="com.example.mockdemo.app.MessageAppTest" time="0.003"/>
   <testcase name="SendMessageServiceWithValidServerSuccess" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
-  <testcase name="TestConnectionWithValidServerReturnsZero" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
-  <testcase name="ConnectionStatusMessageServiceWithInValidServerAndFalseConnectionReturnsFailure" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
-  <testcase name="SendMessageWithValidServerAndMessageReturnsOneWithFalseFlag" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
+  <testcase name="TestConnectionWithValidServerReturnsZero" classname="com.example.mockdemo.app.MessageAppTest" time="0.005"/>
+  <testcase name="ConnectionStatusMessageServiceWithInValidServerAndFalseConnectionReturnsFailure" classname="com.example.mockdemo.app.MessageAppTest" time="0.001"/>
+  <testcase name="SendMessageWithValidServerAndMessageReturnsOneWithFalseFlag" classname="com.example.mockdemo.app.MessageAppTest" time="0.001"/>
   <testcase name="TestConnectionWithNullServerReturnsOne" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
-  <testcase name="TestConnectionWithInValidServerReturnsOne" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
+  <testcase name="TestConnectionWithInValidServerReturnsOne" classname="com.example.mockdemo.app.MessageAppTest" time="0.001"/>
   <testcase name="ConnectionStatusMessageServiceWithValidServerReturnsSuccess" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
-  <testcase name="ConnectionStatusMessageServiceWithValidServerAndFalseConnectionReturnsFailure" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
-  <testcase name="SendMessageServiceWithInValidMessageException" classname="com.example.mockdemo.app.MessageAppTest" time="0.001"/>
-  <testcase name="TestConnectionFalseFlagReturnsOne" classname="com.example.mockdemo.app.MessageAppTest" time="0.001"/>
-  <testcase name="SendMessageServiceWithValidMessageAndServerReturnsError" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
-  <testcase name="SendMessageServiceWithInValidServiceException" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
-  <testcase name="SendMessageServiceWithNullMessageOrServerException" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
+  <testcase name="SetSentheck" classname="com.example.mockdemo.app.MessageAppTest" time="0.001"/>
+  <testcase name="ConnectionStatusMessageServiceWithValidServerAndFalseConnectionReturnsFailure" classname="com.example.mockdemo.app.MessageAppTest" time="0.001"/>
+  <testcase name="SendMessageServiceWithInValidMessageException" classname="com.example.mockdemo.app.MessageAppTest" time="0.005"/>
+  <testcase name="TestConnectionFalseFlagReturnsOne" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
+  <testcase name="SendMessageServiceWithValidMessageAndServerReturnsError" classname="com.example.mockdemo.app.MessageAppTest" time="0.001"/>
+  <testcase name="SendMessageServiceWithInValidServiceException" classname="com.example.mockdemo.app.MessageAppTest" time="0.002"/>
+  <testcase name="SendMessageServiceWithNullMessageOrServerException" classname="com.example.mockdemo.app.MessageAppTest" time="0.001"/>
   <testcase name="SendMessageWithInValidServerAndInValidMessageReturnsTwo" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
   <testcase name="SendMessageWithValidServerAndInValidMessageReturnsTwo" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
   <testcase name="SendMessageWithValidServerAndMessageReturnsZero" classname="com.example.mockdemo.app.MessageAppTest" time="0"/>
